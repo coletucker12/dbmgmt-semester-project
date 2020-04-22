@@ -65,7 +65,7 @@ export default {
         this.major !== null
       ) {
         this.$axios
-          .post(`${process.env.BASE_API_URL}/api/student`, postObj)
+          .post(`https://semester-project-api.herokuapp.com/api/student`, postObj)
           .then(res => {
             this.loading = false
             this.show = false

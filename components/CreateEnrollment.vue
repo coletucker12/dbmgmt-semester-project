@@ -73,7 +73,7 @@ export default {
         this.studentId !== null
       ) {
         this.$axios
-          .post(`${process.env.BASE_API_URL}/api/enrollment`, postObj)
+          .post(`https://semester-project-api.herokuapp.com/api/enrollment`, postObj)
           .then(res => {
             this.loading = false
             this.show = false

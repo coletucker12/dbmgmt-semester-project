@@ -80,7 +80,7 @@ export default {
         this.creditHours !== null
       ) {
         this.$axios
-          .post(`${process.env.BASE_API_URL}/api/course`, postObj)
+          .post(`https://semester-project-api.herokuapp.com/api/course`, postObj)
           .then(res => {
             this.loading = false
             this.show = false
