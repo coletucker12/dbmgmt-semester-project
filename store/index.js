@@ -19,9 +19,9 @@ const mutations = {
 const actions = {
   async FETCH_DATA({ commit }) {
     const reqs = [
-      await this.$axios.get("/api/students"),
-      await this.$axios.get("/api/courses"),
-      await this.$axios.get("/api/enrollments")
+      await this.$axios.get(`${process.env.BASE_API_URL}/api/students`),
+      await this.$axios.get(`${process.env.BASE_API_URL}/api/courses`),
+      await this.$axios.get(`${process.env.BASE_API_URL}/api/enrollments`)
     ]
     await Promise.all(reqs)
       .then(([studentsRes, courseRes, enrollmentRes]) => {

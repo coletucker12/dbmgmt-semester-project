@@ -44,7 +44,7 @@
               <v-btn color="error" block @click="cancel">Cancel</v-btn>
             </v-col>
             <v-col cols="6">
-              <v-btn color="primary" block @click="submit">Submit</v-btn>
+              <v-btn color="primary" block @click="submit" :loading="loading">Submit</v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -61,10 +61,12 @@ export default {
     courseNum: null,
     deptCode: null,
     title: null,
-    creditHours: null
+    creditHours: null,
+    loading: false
   }),
   methods: {
     submit() {
+      this.loading = true
       const postObj = {
         courseNum: this.courseNum,
         title: this.title,
@@ -78,8 +80,9 @@ export default {
         this.creditHours !== null
       ) {
         this.$axios
-          .post("/api/course", postObj)
+          .post(`${process.env.BASE_API_URL}/api/course`, postObj)
           .then(res => {
+            this.loading = false
             this.show = false
             this.$store.dispatch("FETCH_DATA")
           })
