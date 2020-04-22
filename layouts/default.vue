@@ -4,7 +4,7 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-toolbar-items>
-        <v-btn v-for="(tab, idx) in tabs" :key="idx" text :to="tab.to">
+        <v-btn v-for="(tab, idx) in tabs" :key="idx" text :href="tab.to">
           <v-icon>{{ tab.icon }}</v-icon>
           &nbsp;{{ tab.title }}
         </v-btn>
